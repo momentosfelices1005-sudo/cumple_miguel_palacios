@@ -731,6 +731,14 @@ sea aún más inolvidable.
             </div>
           </div>
 
+          <div class="mb-3">
+            <label for="acompanantes" class="form-label" style="font-size: 17px;">Cantidad de acompañantes</label>
+            <input type="number" class="form-control" id="acompanantes" placeholder="0" min="0" max="100" style="font-size: 17px;">
+            <div class="invalid-feedback">
+              Debe ser un número entre 0 y 20.
+            </div>
+          </div>
+
         </form>
       </div>
       <div class="modal-footer">
@@ -851,6 +859,14 @@ sea aún más inolvidable.
 
     // Construir mensaje
     let mensaje = `Hola, felicidades. Confirmo mi asistencia en este día tan especial. Mi nombre es ${nombre.value.trim()}`;
+
+    if (acompanantes.value.trim() && parseInt(acompanantes.value) > 0) {
+      mensaje += ` y asistiré con ${acompanantes.value} acompañante${acompanantes.value > 1 ? 's' : ''}`;
+    }else{
+      mensaje += ` y asistiré sin acompañantes`;
+    }
+
+    
  
 
     const url = `https://wa.me/593999263260?text=${encodeURIComponent(mensaje)}`;
@@ -864,6 +880,7 @@ sea aún más inolvidable.
 
 </body>
 </html>
+
 
 
 
